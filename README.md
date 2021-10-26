@@ -20,8 +20,6 @@ For Cloning Repository:
 
 - cd into todo-list
 
-For Start Webpack
-
 - npm install
 
 - npm start
