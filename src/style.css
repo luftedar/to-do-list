@@ -1,3 +1,48 @@
+*{
+    margin: 0;
+}
+
 body {
-    background-color: red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#list-wrapper {
+    position: fixed;
+    top: 30%;
+    background-color: #f9f9f9;
+    width: 40%;
+    margin: 0 auto;
+    border: 1px solid #cacaca;
+    box-shadow: -2px 5px 15px 5px #cacaca;
+}
+
+.header {
+    padding: 5px 0 5px 10px;
+}
+
+.input {
+    border: none;
+    width: 100%;
+    padding: 20px;
+    font-style: italic;
+}
+
+.list-item {
+    list-style: none;
+    display: flex;
+    padding: 5px 0 5px 10px;
+    border-top: 1px solid #cacaca;
+}
+
+.list-item>*{
+    margin: 5px;
+}
+
+.remove-all {
+    text-align: center;
+    background-color: #cacaca;
+    font-size: small;
+    padding: 10px;
 }
