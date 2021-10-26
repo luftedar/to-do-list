@@ -1,4 +1,5 @@
 import './style.css';
+import updateCheckBox from './interactive.js';
 
 const tasks = [
   {
@@ -46,13 +47,15 @@ const showTasks = () => {
       if (item.index === i) {
         const newListItem = document.createElement('li');
         newListItem.classList.add('list-item');
-        showDiv.appendChild(newListItem);
+        newListItem.id = item.index;
+        newUlist.appendChild(newListItem);
 
         const leftSide = document.createElement('div');
         leftSide.classList.add('left-side');
         newListItem.appendChild(leftSide);
         const checkBox = document.createElement('INPUT');
         checkBox.setAttribute('type', 'checkbox');
+        checkBox.classList.add('checkbox');
         leftSide.appendChild(checkBox);
         const p = document.createElement('p');
         p.textContent = tasks[i].description;
@@ -63,7 +66,6 @@ const showTasks = () => {
         newListItem.appendChild(rightSide);
         const dragIcon = document.createElement('span');
         dragIcon.innerHTML = '<i class="fas fa-ellipsis-v"></i>';
-        dragIcon.style.alignSelf = 'flex-end';
         rightSide.appendChild(dragIcon);
       }
     }
@@ -75,3 +77,13 @@ const showTasks = () => {
 };
 
 window.onload = showTasks();
+
+const box = document.querySelectorAll('.checkbox');
+const ul = document.querySelector('.list');
+const listElement = ul.getElementsByTagName('li');
+
+for (let i = 0; i < listElement.length; i += 1) {
+  box[i].addEventListener('change', (e) => {
+    updateCheckBox(e.target, tasks, e.target.parentElement.parentElement.id);
+  });
+}
