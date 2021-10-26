@@ -12,11 +12,6 @@
 - HTML&CSS, JavaScript
 - Webpack
 
-## Live Demo
-
-[Live Demo Link](https://livedemo.com)
-
-
 ## Getting Started
 
 git clone git@github.com:luftedar/todo-list.git
