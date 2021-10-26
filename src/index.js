@@ -25,10 +25,17 @@ const showTasks = () => {
     const newUlist = document.createElement('ul');
     newUlist.classList.add('list');
 
+    const header = document.createElement('div');
+    header.classList.add('header-wrapper')
+    showDiv.appendChild(header);
+
     const listHeader = document.createElement('p');
     listHeader.textContent = "Today's To Do";
+    const listHeaderIcon = document.createElement('span');
+    listHeaderIcon.innerHTML = '<i class="fas fa-recycle"></i>';
     listHeader.classList.add('header');
-    showDiv.appendChild(listHeader);
+    header.appendChild(listHeader);
+    header.appendChild(listHeaderIcon)
     const addInput = document.createElement('input');
     addInput.placeholder = 'Add to your list...'
     addInput.classList.add('input')
@@ -42,12 +49,23 @@ const showTasks = () => {
                 newListItem.classList.add('list-item');
                 showDiv.appendChild(newListItem);
 
+                const leftSide = document.createElement('div');
+                leftSide.classList.add('left-side');
+                newListItem.appendChild(leftSide);
                 const checkBox = document.createElement('INPUT');
                 checkBox.setAttribute('type','checkbox');
-                newListItem.appendChild(checkBox);
+                leftSide.appendChild(checkBox);
                 const p = document.createElement('p');
                 p.textContent = tasks[i].description;
-                newListItem.appendChild(p);
+                leftSide.appendChild(p);
+
+                const rightSide = document.createElement('div');
+                rightSide.classList.add('right-side');
+                newListItem.appendChild(rightSide);
+                const dragIcon = document.createElement('span');
+                dragIcon.innerHTML = '<i class="fas fa-ellipsis-v"></i>'
+                dragIcon.style.alignSelf = 'flex-end'
+                rightSide.appendChild(dragIcon);
             }
         }
     });
