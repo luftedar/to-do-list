@@ -14,11 +14,18 @@
 
 ## Getting Started
 
-git clone git@github.com:luftedar/todo-list.git
+For Cloning Repository:
 
-cd into todo-list
+- git clone git@github.com:luftedar/todo-list.git
 
-open with browser.
+- cd into todo-list
+
+For Start Webpack
+
+- npm install
+
+- npm start
+
 
 ### Prerequisites
 
