@@ -1,77 +1,74 @@
-*{
-    font-family: 'Lato', sans-serif;
-    margin: 0;
+* {
+  font-family: 'Lato', sans-serif;
+  margin: 0;
 }
 
 body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #list-wrapper {
-    position: fixed;
-    top: 30%;
-    background-color: #f9f9f9;
-    width: 40%;
-    margin: 0 auto;
-    border: 1px solid #cacaca;
-    box-shadow: -2px 5px 15px 5px #cacaca;
+  position: fixed;
+  top: 30%;
+  background-color: #f9f9f9;
+  width: 40%;
+  margin: 0 auto;
+  border: 1px solid #cacaca;
+  box-shadow: -2px 5px 15px 5px #cacaca;
 }
 
 .header {
-    padding: 20px 0 20px 10px;
+  padding: 20px 0 20px 10px;
+  margin-left: 5px;
 }
 
 .input {
-    border: none;
-    width: 100%;
-    padding: 20px;
-    font-style: italic;
+  border: none;
+  width: 100%;
+  padding: 20px;
+  font-style: italic;
 }
 
 .list-item {
-    list-style: none;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 5px 0 5px 10px;
-    border-top: 1px solid #cacaca;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 0 5px 10px;
+  border-top: 1px solid #cacaca;
 }
 
-.list-item>*{
-    margin: 5px;
+.list-item > * {
+  margin: 5px;
 }
 
 .left-side {
-    display: flex;
+  display: flex;
 }
 
-.left-side>*{
-    margin-left: 15px;
+.left-side > * {
+  margin-left: 15px;
 }
 
-.right-side>* {
-    margin-right: 25px;
+.right-side > * {
+  margin-right: 25px;
 }
 
 .remove-all {
-    text-align: center;
-    background-color: #eeeded;
-    font-size: small;
-    padding: 10px;
+  text-align: center;
+  background-color: #eeeded;
+  font-size: small;
+  padding: 10px;
 }
 
 .header-wrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.header {
-    margin-left: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .header-wrapper span {
-    margin-right: 25px;
+  margin-right: 25px;
 }
