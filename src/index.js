@@ -1,7 +1,7 @@
 import './style.css';
 import updateCheckBox from './interactive.js';
 
-const tasks = [
+let tasks = [
   {
     description: '0000Here goes the description',
     complete: false,
@@ -18,6 +18,12 @@ const tasks = [
     index: 2,
   },
 ];
+
+export default function setLocal(list) {
+  localStorage.setItem('localList', JSON.stringify(list));
+}
+
+tasks = localStorage.getItem('localList') !== null ? JSON.parse(localStorage.getItem('localList')) : tasks;
 
 const showTasks = () => {
   const showDiv = document.querySelector('#list-wrapper');
@@ -56,6 +62,7 @@ const showTasks = () => {
         const checkBox = document.createElement('INPUT');
         checkBox.setAttribute('type', 'checkbox');
         checkBox.classList.add('checkbox');
+        checkBox.checked = tasks[i].complete;
         leftSide.appendChild(checkBox);
         const p = document.createElement('p');
         p.textContent = tasks[i].description;
@@ -85,5 +92,6 @@ const listElement = ul.getElementsByTagName('li');
 for (let i = 0; i < listElement.length; i += 1) {
   box[i].addEventListener('change', (e) => {
     updateCheckBox(e.target, tasks, e.target.parentElement.parentElement.id);
+    console.log(tasks);
   });
 }
