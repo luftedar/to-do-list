@@ -4,6 +4,10 @@ const showDiv = document.querySelector('#list-wrapper');
 const newUlist = document.createElement('ul');
 newUlist.classList.add('list');
 newUlist.id = 'list';
+const newListItem = document.createElement('li');
+newListItem.classList.add('list-item');
+
+
 
 export function renderBasic(){
   const header = document.createElement('div');
@@ -67,7 +71,15 @@ export function render(taskArray){
 }
 
 export function removeHtml (index) {
-  let stringed = index.toString();
-  const removalList = document.getElementById(stringed);
+  const removalList = document.getElementById(index);
   removalList.remove();
+  const displayedLists = document.getElementsByClassName("list-item")
+  taskList.forEach((item)=> {
+    for(let i = 0 ; i < displayedLists.length;i+=1){
+      if (item.index === i) {
+        console.log(i,item,index);
+        displayedLists[i].id = item.index;
+      }
+    }
+  });
 }

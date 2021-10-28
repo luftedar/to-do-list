@@ -11,7 +11,9 @@ export function addNewItem(newDescription,newComplete,newIndex){
 }
 
 export function removeItem(removal){
+  console.log('inputvalue',removal,'object.index',taskList[removal].index,taskList);
   taskList = taskList.filter((x) => x !== taskList[removal])
+  console.log(taskList);
   let length = taskList.length;
   while(length>removal){
     taskList[length-1].index = taskList[length-1].index -  1;
