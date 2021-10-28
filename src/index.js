@@ -24,8 +24,8 @@ window.addEventListener('DOMContentLoaded',() => {
           if(e.target.className === 'far fa-trash-alt'){
             console.log(e.target.parentElement.parentElement.parentElement.id);
             let index = e.target.parentElement.parentElement.parentElement.id;
-            renderscript.removeHtml(index);
             removeItem(index);
+            renderscript.removeHtml(index);
             console.log(taskList);
           }
         });
