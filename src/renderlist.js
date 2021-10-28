@@ -1,4 +1,4 @@
-import { taskList } from "./addremove";
+import { taskList } from './addremove';
 
 const showDiv = document.querySelector('#list-wrapper');
 const newUlist = document.createElement('ul');
@@ -7,9 +7,7 @@ newUlist.id = 'list';
 const newListItem = document.createElement('li');
 newListItem.classList.add('list-item');
 
-
-
-export function renderBasic(){
+export function renderBasic() {
   const header = document.createElement('div');
   header.classList.add('header-wrapper');
   showDiv.appendChild(header);
@@ -31,14 +29,14 @@ export function renderBasic(){
   showDiv.appendChild(newUlist);
 }
 
-export function renderBasicDelete(){
+export function renderBasicDelete() {
   const clearAll = document.createElement('p');
   clearAll.textContent = 'Clear all completed';
   clearAll.classList.add('remove-all');
   showDiv.appendChild(clearAll);
 }
 
-export function render(taskArray){
+export function render(taskArray) {
   taskArray.forEach((item) => {
     for (let i = 0; i < taskArray.length; i += 1) {
       if (item.index === i) {
@@ -57,9 +55,12 @@ export function render(taskArray){
         leftSide.appendChild(checkBox);
         const p = document.createElement('p');
         p.contentEditable = 'true';
-        p.classList.add('editable')
+        p.classList.add('editable');
         p.textContent = taskArray[i].description;
         leftSide.appendChild(p);
+        if (taskArray[i].complete) {
+          overlineChecked(p);
+        }
 
         const rightSide = document.createElement('div');
         rightSide.classList.add('right-side');
@@ -72,34 +73,43 @@ export function render(taskArray){
   });
 }
 
-export function removeHtml (index) {
+export function removeHtml(index) {
   const removalList = document.getElementById(index);
   removalList.remove();
-  const displayedLists = document.getElementsByClassName("list-item")
-  taskList.forEach((item)=> {
-    for(let i = 0 ; i < displayedLists.length;i+=1){
+  const displayedLists = document.getElementsByClassName('list-item');
+  taskList.forEach((item) => {
+    for (let i = 0; i < displayedLists.length; i += 1) {
       if (item.index === i) {
-        console.log(i,item,index);
         displayedLists[i].id = item.index;
       }
     }
   });
 }
 
-export function removeCheckedHtml (idArray){
+export function removeCheckedHtml(idArray) {
   const listItems = document.querySelectorAll('.list-item');
   idArray.forEach((item) => {
-    for(let i = 0; i<listItems.length;i+=1) {
-      if(item == i){
+    for (let i = 0; i < listItems.length; i += 1) {
+      if (item == i) {
         listItems[i].remove();
       }
     }
-  })
+  });
 }
 
-export function reRenderRemovedCheckedId(){
+export function reRenderRemovedCheckedId() {
   const listItems = document.querySelectorAll('.list-item');
-  for(let i = 0; i<listItems.length; i+= 1){
+  for (let i = 0; i < listItems.length; i += 1) {
     listItems[i].id = i;
   }
+}
+
+export function overlineChecked(htmlElement) {
+  htmlElement.style.textDecoration = 'line-through';
+  htmlElement.contenteditable = 'false';
+}
+
+export function noneChecked(htmlElement) {
+  htmlElement.style.textDecoration = 'none';
+  htmlElement.contenteditable = 'true';
 }
