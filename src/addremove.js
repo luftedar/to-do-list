@@ -11,16 +11,26 @@ export function addNewItem(newDescription,newComplete,newIndex){
 }
 
 export function removeItem(removal){
-  console.log('inputvalue',removal,'object.index',taskList[removal].index,taskList);
-  taskList = taskList.filter((x) => x !== taskList[removal])
-  console.log(taskList);
-  let length = taskList.length;
-  while(length>removal){
+  if(removal === 0 && taskList.length === 1){
+    taskList = [];
+  }
+  else{
+    taskList = taskList.filter((x) => x !== taskList[removal])
+    let length = taskList.length;
+    while(length>removal){
     taskList[length-1].index = taskList[length-1].index -  1;
     length--;
+  }
   }
 }
 
 export function removeAllChecked(){
-  taskList = taskList.filter((x) => x.complete === true);
+  taskList = taskList.filter((x) => x.complete === false);
+  for(let i = 0; i < taskList.length;i += 1){
+    taskList[i].index = i;
+  }
+}
+
+export function editedPTag(changedDesc,index){
+  taskList[index].description = changedDesc;
 }

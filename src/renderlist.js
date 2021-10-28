@@ -56,6 +56,8 @@ export function render(taskArray){
         checkBox.checked = taskArray[i].complete;
         leftSide.appendChild(checkBox);
         const p = document.createElement('p');
+        p.contentEditable = 'true';
+        p.classList.add('editable')
         p.textContent = taskArray[i].description;
         leftSide.appendChild(p);
 
@@ -82,4 +84,22 @@ export function removeHtml (index) {
       }
     }
   });
+}
+
+export function removeCheckedHtml (idArray){
+  const listItems = document.querySelectorAll('.list-item');
+  idArray.forEach((item) => {
+    for(let i = 0; i<listItems.length;i+=1) {
+      if(item == i){
+        listItems[i].remove();
+      }
+    }
+  })
+}
+
+export function reRenderRemovedCheckedId(){
+  const listItems = document.querySelectorAll('.list-item');
+  for(let i = 0; i<listItems.length; i+= 1){
+    listItems[i].id = i;
+  }
 }
