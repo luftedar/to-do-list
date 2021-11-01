@@ -12,6 +12,10 @@
 - HTML&CSS, JavaScript
 - Webpack
 
+## Live Demo
+
+[Live Demo](https://luftedar.github.io/todo-list/dist/)
+
 ## Getting Started
 
 For Cloning Repository:
