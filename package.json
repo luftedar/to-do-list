@@ -20,7 +20,7 @@
   "bugs": {
     "url": "https://github.com/luftedar/setup-webpack-point/issues"
   },
-  "homepage": "https://github.com/luftedar/setup-webpac-point#readme",
+  "homepage": "https://github.com/luftedar/setup-webpack-point#readme",
   "devDependencies": {
     "@productboard/webpack-deploy": "github:productboard/webpack-deploy",
     "babel-eslint": "^10.1.0",
