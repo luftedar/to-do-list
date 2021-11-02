@@ -14,7 +14,7 @@
 
 ## Live Demo
 
-[Live Demo](https://luftedar.github.io/todo-list/dist/)
+[Live Demo](https://luftedar.github.io/todo-list)
 
 ## Getting Started
 
