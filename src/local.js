@@ -1,9 +1,9 @@
 export function addToLocalStorage(array, localname = 'localList') {
-  localStorage.setItem(localname, JSON.stringify(array));
+  window.localStorage.setItem(localname, JSON.stringify(array));
 }
 
 export function getFromLocalStorage(array) {
-  if (localStorage.getItem(array) == null) {
+  if (window.localStorage.getItem(array) == null) {
     return null;
   }
   return JSON.parse(localStorage.getItem(array));
