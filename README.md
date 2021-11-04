@@ -2,7 +2,7 @@
 
 # To Do List
 
-> In this project I made a to list by usign JS, webpack.
+This To Do list project is made for testing using Jest and Mock.
 
 ![screenshot](./app_screenshot.png)
 
@@ -34,6 +34,12 @@ For Cloning Repository:
 - Webpack, Internet Browser, Note Editor
 
 ## Authors
+
+👤 **Syeda Juveria Afreen**
+
+- GitHub: [@githubhandle](https://github.com/sja-thedude)
+- Twitter: [@twitterhandle](https://twitter.com/sja_thedude)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/syeda-juveria-afreen-23165898/)
 
 👤 **Orçun Uğur**
 
