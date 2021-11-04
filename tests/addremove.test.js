@@ -1,53 +1,21 @@
-import { addNewItem } from "../src/addremove";
+const { addNewItem,removeItem } = require("../src/__mocks__/addremove")
 
-class LocalStorageMock {
-  constructor() {
-    this.store = {};
-  }
+const taskList = [
+  {
+    description: 'Task 1',
+    completed: false,
+    index: 0,
+  },
+  {
+    description: 'Task 2',
+    completed: false,
+    index: 1,
+  },
+]
 
-  clear() {
-    this.store = {};
-  }
-
-  getItem(key) {
-    return this.store[key] || null;
-  }
-
-  setItem(key, value) {
-    this.store[key] = String(value);
-  }
-
-  removeItem(key) {
-    delete this.store[key];
-  }
-}
-
-global.localStorage = new LocalStorageMock();
-
-beforeEach(() => {
-  localStorage.setItem('stored', JSON.stringify([
-    {
-      description: 'Here Goes Desc',
-      completed: false,
-      index: 0,
-    },
-    {
-      description: 'Here Goes Desc',
-      completed: false,
-      index: 1,
-    },
-    {
-      description: 'Here Goes Desc',
-      completed: false,
-      index: 2,
-    },
-  ]))
-});
-
-describe('Add New Item', () => {
-  test('Adds New Object to the array', () => {
-    const lastIndex = JSON.parse(localStorage.getItem('stored')).length;
-    addNewItem('Here Goes the New Desc',false,lastIndex)
-    expect((JSON.parse(localStorage.getItem('stored'))).length).toBe(4);
-  })
+describe('Tests for add remove', () => {
+  test('Add Item', () => {
+    addNewItem('New Task',false,taskList.length,taskList)
+    expect(taskList.length).toBe(3);
+  });
 })
