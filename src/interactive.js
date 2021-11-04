@@ -11,18 +11,8 @@ for (let i = 0; i < statusArray.length; i += 1) {
   }
 }
 
-export function updateCheckBox(htmlElement, array, index, pElement) {
-  if (htmlElement.checked) {
-    array[index].complete = true;
-    checkedArray.push(index);
-    addToLocalStorage(array);
-    addToLocalStorage(taskList, 'checked');
-    overlineChecked(pElement);
-  } else {
-    array[index].complete = false;
-    checkedArray = checkedArray.filter((x) => x !== index);
-    addToLocalStorage(array);
-    addToLocalStorage(taskList, 'checked');
-    noneChecked(pElement);
-  }
+export function updateCheckBox(array) {
+  addToLocalStorage(array);
+  addToLocalStorage(taskList, 'checked');
+  return array;
 }
