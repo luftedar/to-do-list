@@ -1,4 +1,6 @@
-const { addNewItem, removeItem,editedPTag,removeAllChecked,updateCheckBox } = require('../src/__mocks__/addremove');
+const {
+  addNewItem, removeItem, editedPTag, removeAllChecked, updateCheckBox,
+} = require('../src/__mocks__/addremove');
 
 const taskList = [
   {
@@ -72,9 +74,5 @@ describe('Tests for editing, updating complete, clear all', () => {
     localStorage.setItem('taskList', removeAllChecked(taskList));
     removeAllChecked(taskList);
     expect(localStorage.getItem('taskList').length).toBe(1);
-  });
-  test('LocalStorage', () => {
-    localStorage.setItem('taskList', removeItem(1, taskList));
-    expect(localStorage.getItem('taskList')).toBe(2);
   });
 });
