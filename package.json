@@ -4,11 +4,17 @@
   "description": "![](https://img.shields.io/badge/Microverse-blueviolet)",
   "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "watch": "webpack --watch",
     "start": "webpack serve --open",
     "build": "webpack",
     "deploy": "gh-pages -d dist"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+      "\\.(css|less)$": "<rootDir>/__mocks__/styleMock.js"
+    }
   },
   "repository": {
     "type": "git",
@@ -22,6 +28,7 @@
   },
   "homepage": "https://github.com/luftedar/webpack-start-point#readme",
   "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.16.0",
     "@productboard/webpack-deploy": "github:productboard/webpack-deploy",
     "babel-eslint": "^10.1.0",
     "css-loader": "^6.4.0",
@@ -29,6 +36,7 @@
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.25.2",
     "html-webpack-plugin": "^5.5.0",
+    "jest": "^27.3.1",
     "style-loader": "^3.3.1",
     "stylelint": "^13.13.1",
     "stylelint-config-standard": "^21.0.0",

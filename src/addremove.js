@@ -8,28 +8,31 @@ if (getFromLocalStorage('localList') == null) {
   taskList = getFromLocalStorage('localList');
 }
 
-export function addNewItem(newDescription, newComplete, newIndex) {
+export function addNewItem(newDescription, newComplete, newIndex, array) {
   const newTask = {
     description: newDescription,
     complete: newComplete,
     index: newIndex,
   };
-  taskList.push(newTask);
-  addToLocalStorage(taskList);
+  array.push(newTask);
+  addToLocalStorage(array);
+  return array;
 }
 
-export function removeItem(removal) {
-  if (removal === 0 && taskList.length === 1) {
-    taskList = [];
+export function removeItem(removal, array) {
+  if (removal === 0 && array.length === 1) {
+    array = [];
   } else {
-    taskList = taskList.filter((x) => x !== taskList[removal]);
-    let { length } = taskList;
+    array = array.filter((x) => x !== array[removal]);
+    let { length } = array;
     while (length > removal) {
-      taskList[length - 1].index = taskList[length - 1].index - 1;
+      array[length - 1].index = array[length - 1].index - 1;
       length--;
     }
   }
-  addToLocalStorage(taskList);
+  addToLocalStorage(array);
+  console.log(array);
+  return array;
 }
 
 export function removeAllChecked() {

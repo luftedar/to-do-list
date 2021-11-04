@@ -23,7 +23,7 @@ window.addEventListener('DOMContentLoaded', () => {
     if (e.which === 13) {
       const ul = document.querySelector('#list');
       ul.innerHTML = '';
-      addNewItem(inputArea.value, false, taskList.length);
+      addNewItem(inputArea.value, false, taskList.length, taskList);
       inputArea.value = '';
       renderscript.render(taskList);
       const deleteIcon = document.querySelectorAll('.fa-trash-alt');
@@ -33,11 +33,11 @@ window.addEventListener('DOMContentLoaded', () => {
         deleteIcon[i].addEventListener('click', (e) => {
           if (e.target.className === 'far fa-trash-alt') {
             if (i === 0) {
-              removeItem('0');
+              removeItem('0', taskList);
               renderscript.removeHtml('0');
             } else {
               const index = e.target.parentElement.parentElement.parentElement.id;
-              removeItem(index);
+              removeItem(index, taskList);
               renderscript.removeHtml(index);
             }
           }
