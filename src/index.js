@@ -5,6 +5,7 @@ import {
 } from './addremove';
 import { updateCheckBox, checkedArray } from './interactive.js';
 import { addToLocalStorage, getFromLocalStorage } from './local.js';
+import { checkedArray} from './interactive'
 
 window.addEventListener('DOMContentLoaded', () => {
   renderscript.renderBasic();
@@ -12,7 +13,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
   const clearAllButton = document.querySelector('.remove-all');
   clearAllButton.addEventListener('click', () => {
-    removeAllChecked();
+    removeAllChecked(taskList);
     renderscript.removeCheckedHtml(checkedArray);
     renderscript.reRenderRemovedCheckedId();
   });
@@ -32,6 +33,7 @@ window.addEventListener('DOMContentLoaded', () => {
       for (let i = 0; i < taskList.length; i += 1) {
         deleteIcon[i].addEventListener('click', (e) => {
           if (e.target.className === 'far fa-trash-alt') {
+            console.log(taskList);
             if (i === 0) {
               removeItem('0', taskList);
               renderscript.removeHtml('0');
@@ -43,11 +45,20 @@ window.addEventListener('DOMContentLoaded', () => {
           }
         });
         box[i].addEventListener('change', (e) => {
-          updateCheckBox(e.target, taskList, e.target.parentElement.parentElement.id, pItem[i]);
+          if (e.target.checked) {
+            taskList[e.target.parentElement.parentElement.id].complete = true;
+            checkedArray.push(e.target.parentElement.parentElement.id);
+            overlineChecked(pItem[i]);
+          } else {
+            taskList[e.target.parentElement.parentElement.id].complete = false;
+            checkedArray = checkedArray.filter((x) => x !== e.target.parentElement.parentElement.id);
+            noneChecked(pItem[i]);
+          }
+          updateCheckBox(taskList);
         });
         const pItem = document.querySelectorAll('.editable');
         pItem[i].addEventListener('blur', () => {
-          editedPTag(pItem[i].textContent, i);
+          editedPTag(pItem[i].textContent, i, taskList);
         });
       }
     }
@@ -73,7 +84,7 @@ window.addEventListener('DOMContentLoaded', () => {
       updateCheckBox(e.target, taskList, e.target.parentElement.parentElement.id, pItem[i]);
     });
     pItem[i].addEventListener('blur', () => {
-      editedPTag(pItem[i].textContent, i);
+      editedPTag(pItem[i].textContent, i, taskList);
     });
   }
 });

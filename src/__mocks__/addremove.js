@@ -21,5 +21,25 @@ function removeItem(removal,array) {
   return array.length;
 }
 
+function editedPTag(changedDesc, index,array) {
+  array[index].description = changedDesc;
+  return array;
+}
+
+function removeAllChecked(array) {
+  array = array.filter((x) => x.complete === false);
+  for (let i = 0; i < array.length; i += 1) {
+    array[i].index = i;
+  }
+  return array;
+}
+
+function updateCheckBox(array) {
+  return array;
+}
+
 exports.addNewItem = addNewItem;
 exports.removeItem = removeItem;
+exports.editedPTag = editedPTag;
+exports.removeAllChecked = removeAllChecked;
+exports.updateCheckBox = updateCheckBox;
