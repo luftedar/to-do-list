@@ -1,6 +1,6 @@
 const { addNewItem, removeItem } = require('../src/__mocks__/addremove');
 
-const taskList = [
+let taskList = [
   {
     description: 'Task 1',
     completed: false,
@@ -47,15 +47,13 @@ describe('Tests for add remove', () => {
   test('Add Item', () => {
     addNewItem('New Task', false, taskList.length, taskList);
     expect(taskList.length).toBe(3);
+    localStorage.setItem("taskList", taskList);
   });
   test('Remove Item', () => {
     expect(removeItem(1, taskList)).toBe(2);
   });
-  test('Check The Index', () => {
-    expect(taskList[1].index).toBe(1);
-  });
   test('LocalStorage', () => {
-    localStorage.setItem("taskList", taskList)
-    expect(LocalStorage.getItem("taskList")).toHaveLength(2);
+    localStorage.setItem("taskList", removeItem(1,taskList))
+    expect(localStorage.getItem("taskList")).toBe(2);
   })
 });
