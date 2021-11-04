@@ -69,8 +69,12 @@ describe('Tests for editing, updating complete, clear all', () => {
     expect(localStorage.getItem('taskList')[1].completed).toBe(true);
   });
   test('Clear All', () => {
-    localStorage.setItem('taskList',removeAllChecked(taskList));
+    localStorage.setItem('taskList', removeAllChecked(taskList));
     removeAllChecked(taskList);
     expect(localStorage.getItem('taskList').length).toBe(1);
+  });
+  test('LocalStorage', () => {
+    localStorage.setItem('taskList', removeItem(1, taskList));
+    expect(localStorage.getItem('taskList')).toBe(2);
   });
 });
