@@ -18,4 +18,10 @@ describe('Tests for add remove', () => {
     addNewItem('New Task',false,taskList.length,taskList)
     expect(taskList.length).toBe(3);
   });
+  test('Remove Item', () => {
+    expect(removeItem(1,taskList)).toBe(2);
+  });
+  test('Check The Index', () => {
+    expect(taskList[1].index).toBe(1);
+  })
 })
