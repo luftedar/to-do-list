@@ -14,13 +14,13 @@ This To Do list project is made for testing using Jest and Mock.
 
 ## Live Demo
 
-[Live Demo](https://luftedar.github.io/todo-list/dist)
+[Live Demo](https://luftedar.github.io/todo-list)
 
 ## Getting Started
 
 For Cloning Repository:
 
-- git clone https://github.com/vichuge/js-todo-list.git
+- git clone git@github.com:luftedar/todo-list.git
 - cd into todo-list
 - npm install
 - npm start
