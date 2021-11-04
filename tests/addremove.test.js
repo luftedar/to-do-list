@@ -13,6 +13,36 @@ const taskList = [
   },
 ];
 
+class LocalStorageMock {
+    constructor() {
+      this.store = {};
+    }
+
+    clear() {
+      this.store = {};
+      return this.store;
+    }
+
+    getItem(key) {
+      if (this.store[key] === null) {
+        return [];
+      }
+      return this.store[key];
+    }
+
+    setItem(key, value) {
+      this.store[key] = value;
+      return this.store[key];
+    }
+
+    removeItem(key) {
+      delete this.store[key];
+    }
+  }
+
+  const localStorage = new LocalStorageMock();
+
+
 describe('Tests for add remove', () => {
   test('Add Item', () => {
     addNewItem('New Task', false, taskList.length, taskList);
@@ -24,4 +54,8 @@ describe('Tests for add remove', () => {
   test('Check The Index', () => {
     expect(taskList[1].index).toBe(1);
   });
+  test('LocalStorage', () => {
+    localStorage.setItem("taskList", taskList)
+    expect(LocalStorage.getItem("taskList")).toHaveLength(2);
+  })
 });
