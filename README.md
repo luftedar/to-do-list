@@ -40,7 +40,7 @@ For Cloning Repository:
 
 - GitHub: [@githubhandle](https://github.com/sja-thedude)
 - Twitter: [@twitterhandle](https://twitter.com/sja_thedude)
-- LinkedIn: [LinkedIn](https://www.linkedin.com/in/syeda-juveria-afreen-23165898/)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/orcunugur)
 
 👤 **Orçun Uğur**
 
